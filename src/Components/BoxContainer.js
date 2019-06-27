@@ -29,12 +29,12 @@ class BoxContainer extends Component{
   }
 
   handleClick = (boxId, boxColor) =>{
-    var colorIndex = Math.floor(Math.random() * this.props.colorOptions.length)
-    if (this.props.colorOptions[colorIndex]===boxColor) {
+    let colorIndex;
+     // = Math.floor(Math.random() * this.props.colorOptions.length)
+     do {
       colorIndex = Math.floor(Math.random() * this.props.colorOptions.length)
-    }
-    console.log('colorBox', boxColor);
-    console.log('newColor', this.props.colorOptions[colorIndex]);
+     } while (this.props.colorOptions[colorIndex]===boxColor)
+     
     const newBox = this.state.boxes.map(box => {
       if (box.id == boxId) {
         return{...box, color: this.props.colorOptions[colorIndex]};

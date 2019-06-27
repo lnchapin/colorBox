@@ -30,11 +30,10 @@ class BoxContainer extends Component{
 
   handleClick = (boxId, boxColor) =>{
     let colorIndex;
-     // = Math.floor(Math.random() * this.props.colorOptions.length)
      do {
       colorIndex = Math.floor(Math.random() * this.props.colorOptions.length)
      } while (this.props.colorOptions[colorIndex]===boxColor)
-     
+
     const newBox = this.state.boxes.map(box => {
       if (box.id == boxId) {
         return{...box, color: this.props.colorOptions[colorIndex]};
